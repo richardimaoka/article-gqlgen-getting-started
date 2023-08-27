@@ -6,7 +6,10 @@ package graph
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
+	"log"
+	"os"
 
 	"github.com/richardimaoka/article-gqlgen-getting-started/graph/model"
 )
@@ -27,7 +30,21 @@ func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 
 // Todo is the resolver for the todo field.
 func (r *queryResolver) Todo(ctx context.Context) (*model.Todo, error) {
-	panic(fmt.Errorf("not implemented: Todo - todo"))
+	filePath := "data/todo.json"
+	bytes, err := os.ReadFile(filePath)
+	if err != nil {
+		log.Printf("Todo() failed to read file: %v", err)
+		return nil, fmt.Errorf("Internal Server Error")
+	}
+
+	var todo *model.Todo
+	err = json.Unmarshal(bytes, &todo)
+	if err != nil {
+		log.Printf("Todo() failed to unmarshal json: %v", err)
+		return nil, fmt.Errorf("Internal Server Error")
+	}
+
+	return todo, nil
 }
 
 // Mutation returns MutationResolver implementation.
