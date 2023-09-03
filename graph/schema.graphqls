@@ -2,6 +2,12 @@
 #
 # https://gqlgen.com/getting-started/
 
+type Date {
+  year: Int
+  month: Int
+  day: Int
+}
+
 type Todo {
   id: ID!
   title: String
