@@ -22,7 +22,7 @@ func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 	todo2 := model.Todo{ID: "2", Text: "Finish homework", Done: true}
 	todo3 := model.Todo{ID: "3", Text: "Squat 100 reps", Done: false}
 
-	return []*model.Todo{todo1, todo2, todo3}, nil
+	return []*model.Todo{&todo1, &todo2, &todo3}, nil
 }
 
 // Mutation returns MutationResolver implementation.
