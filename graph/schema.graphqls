@@ -15,6 +15,7 @@ type Todo {
   done: Boolean!
   user: User!
   createdAt: Date
+  updatedAt: Date
 }
 
 type User {

@@ -20,6 +20,7 @@ type Todo struct {
 	Done      bool    `json:"done"`
 	User      *User   `json:"user"`
 	CreatedAt *Date   `json:"createdAt,omitempty"`
+	UpdatedAt *Date   `json:"updatedAt,omitempty"`
 }
 
 type User struct {
