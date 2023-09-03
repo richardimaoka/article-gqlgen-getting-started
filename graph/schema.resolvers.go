@@ -25,6 +25,11 @@ func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 	return []*model.Todo{&todo1, &todo2, &todo3}, nil
 }
 
+// Todo is the resolver for the todo field.
+func (r *queryResolver) Todo(ctx context.Context) (*model.Todo, error) {
+	panic(fmt.Errorf("not implemented: Todo - todo"))
+}
+
 // Mutation returns MutationResolver implementation.
 func (r *Resolver) Mutation() MutationResolver { return &mutationResolver{r} }
 
