@@ -57,8 +57,9 @@ func (r *queryResolver) User(ctx context.Context, id string) (*model.User, error
 	}
 
 	return &model.User{
-		ID:   dbUser.Id,
-		Name: dbUser.Name,
+		ID:        dbUser.Id,
+		Name:      dbUser.Name,
+		Residence: dbUser.Residence,
 	}, nil
 }
 
