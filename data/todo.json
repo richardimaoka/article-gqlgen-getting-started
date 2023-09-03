@@ -2,5 +2,10 @@
   "id": "1",
   "text": "Buy some bread",
   "title": "Shopping",
-  "done": false
+  "done": false,
+  "createdAt": {
+    "year": 2023,
+    "month": 9,
+    "day": 3
+  }
 }
