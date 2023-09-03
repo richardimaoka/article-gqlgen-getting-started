@@ -1,11 +1,16 @@
 {
   "id": "1",
-  "text": "Buy some bread",
+  "text": "Buy some bread, and juice",
   "title": "Shopping",
   "done": false,
   "createdAt": {
     "year": 2023,
     "month": 9,
     "day": 3
+  },
+  "updatedAt": {
+    "year": 2023,
+    "month": 9,
+    "day": 4
   }
 }
