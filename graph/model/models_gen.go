@@ -14,11 +14,12 @@ type NewTodo struct {
 }
 
 type Todo struct {
-	ID    string  `json:"id"`
-	Title *string `json:"title,omitempty"`
-	Text  string  `json:"text"`
-	Done  bool    `json:"done"`
-	User  *User   `json:"user"`
+	ID        string  `json:"id"`
+	Title     *string `json:"title,omitempty"`
+	Text      string  `json:"text"`
+	Done      bool    `json:"done"`
+	User      *User   `json:"user"`
+	CreatedAt *Date   `json:"createdAt,omitempty"`
 }
 
 type User struct {
