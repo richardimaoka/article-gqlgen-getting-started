@@ -59,11 +59,14 @@ func (r *queryResolver) User(ctx context.Context, id string) (*model.User, error
 	var residencePtr *model.Residence
 	switch dbUser.Residence {
 	case "EARTH":
-		residencePtr = &model.ResidenceEarth
+		r := model.ResidenceEarth
+		residencePtr = &r
 	case "MARS":
-		residencePtr = &model.ResidenceMars
+		r := model.Residence(model.ResidenceMars)
+		residencePtr = &r
 	case "MOON":
-		residencePtr = &model.ResidenceMoon
+		r := model.ResidenceMoon
+		residencePtr = &r
 	default:
 		residencePtr = nil
 	}
