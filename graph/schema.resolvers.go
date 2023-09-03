@@ -11,6 +11,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/richardimaoka/article-gqlgen-getting-started/database"
 	"github.com/richardimaoka/article-gqlgen-getting-started/graph/model"
 )
 
@@ -49,7 +50,16 @@ func (r *queryResolver) Todo(ctx context.Context) (*model.Todo, error) {
 
 // User is the resolver for the user field.
 func (r *queryResolver) User(ctx context.Context, id string) (*model.User, error) {
-	panic(fmt.Errorf("not implemented: User - user"))
+	dbUser, err := database.GetUserFromDb(id)
+	if err != nil {
+		log.Printf("failed in User(), %v", err)
+		return nil, fmt.Errorf("User not found for id = %s", id)
+	}
+
+	return &model.User{
+		ID:   dbUser.Id,
+		Name: dbUser.Name,
+	}, nil
 }
 
 // Mutation returns MutationResolver implementation.
