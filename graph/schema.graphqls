@@ -18,9 +18,16 @@ type Todo {
   updatedAt: Date
 }
 
+enum Residence {
+  EARTH
+  MOON
+  MARS
+}
+
 type User {
   id: ID!
   name: String!
+  residence: Residence
 }
 
 type Query {
