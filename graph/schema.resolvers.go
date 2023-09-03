@@ -56,10 +56,22 @@ func (r *queryResolver) User(ctx context.Context, id string) (*model.User, error
 		return nil, fmt.Errorf("User not found for id = %s", id)
 	}
 
+	var residencePtr *model.Residence
+	switch dbUser.Residence {
+	case "EARTH":
+		residencePtr = &model.ResidenceEarth
+	case "MARS":
+		residencePtr = &model.ResidenceMars
+	case "MOON":
+		residencePtr = &model.ResidenceMoon
+	default:
+		residencePtr = nil
+	}
+
 	return &model.User{
 		ID:        dbUser.Id,
 		Name:      dbUser.Name,
-		Residence: dbUser.Residence,
+		Residence: residencePtr,
 	}, nil
 }
 
