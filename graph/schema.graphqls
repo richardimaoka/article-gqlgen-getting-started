@@ -4,6 +4,7 @@
 
 type Todo {
   id: ID!
+  title: String
   text: String!
   done: Boolean!
   user: User!
